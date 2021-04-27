@@ -9,5 +9,7 @@ export class ErrorMessageComponent implements OnInit {
   @Input('message') messageProps: string = 'Something went wrong!';
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.messageProps)
+  }
 }

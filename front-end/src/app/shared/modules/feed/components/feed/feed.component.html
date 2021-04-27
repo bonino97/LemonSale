@@ -1,7 +1,7 @@
 <app-loading *ngIf="isLoading$ | async"></app-loading>
 <app-error-message
   *ngIf="error$ | async"
-  [message]="'Error Ocurred'"
+  [message]="error$ | async"
 ></app-error-message>
 <div *ngIf="feed$ | async">
   <div class="row">
@@ -63,7 +63,7 @@
           </div>
         </div>
         <div class="card-footer">
-          <app-tag-list></app-tag-list>
+          <app-tag-list [tags]=""></app-tag-list>
         </div>
       </div>
     </div>
