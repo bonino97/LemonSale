@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-message.module';
 import { LoadingModule } from 'src/app/shared/modules/loading/loading.module';
 import { SharedPaginationModule } from 'src/app/shared/modules/pagination/pagination.module';
+import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -22,6 +23,7 @@ import { SharedPaginationModule } from 'src/app/shared/modules/pagination/pagina
     ErrorMessageModule,
     LoadingModule,
     SharedPaginationModule,
+    TagListModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],
