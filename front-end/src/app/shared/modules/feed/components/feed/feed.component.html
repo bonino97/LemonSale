@@ -1,0 +1,69 @@
+<app-loading *ngIf="isLoading$ | async"></app-loading>
+<app-error-message
+  *ngIf="error$ | async"
+  [message]="'Error Ocurred'"
+></app-error-message>
+<div *ngIf="feed$ | async">
+  <div class="row">
+    <div
+      class="col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      *ngFor="let article of (feed$ | async)?.articles"
+    >
+      <div class="card shadow">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-12 text-center">
+              <a [routerLink]="['/profiles', article?.author?.username]">
+                <img alt="Article Photo" [src]="article?.author?.image" />
+              </a>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+              <a [routerLink]="['/profiles', article?.author?.username]">{{
+                article?.author?.username
+              }}</a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right">
+              <span> Add to favorites </span>
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 text-left">
+              <a [routerLink]="['/articles', article?.slug]">
+                <h3 *ngIf="article?.title?.length > 15">
+                  {{ article?.title.substring(0, 15) }} ...
+                </h3>
+
+                <h3 *ngIf="article?.title?.length < 15">
+                  {{ article?.title }}
+                </h3>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-description">
+            <div class="row">
+              <div class="col-12 text-left">
+                <a [routerLink]="['/articles', article?.slug]">
+                  <p>{{ article?.description }}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <span> Read more... </span>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">Here list of tags...</div>
+      </div>
+    </div>
+  </div>
+</div>
