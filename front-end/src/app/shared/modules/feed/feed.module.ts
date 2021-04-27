@@ -10,7 +10,7 @@ import { reducers } from 'src/app/shared/modules/feed/store/reducer';
 import { RouterModule } from '@angular/router';
 import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-message.module';
 import { LoadingModule } from 'src/app/shared/modules/loading/loading.module';
-import { PaginationModule } from 'src/app/shared/modules/pagination/pagination.module';
+import { SharedPaginationModule } from 'src/app/shared/modules/pagination/pagination.module';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -21,7 +21,7 @@ import { PaginationModule } from 'src/app/shared/modules/pagination/pagination.m
     RouterModule,
     ErrorMessageModule,
     LoadingModule,
-    PaginationModule,
+    SharedPaginationModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],

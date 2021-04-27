@@ -1,6 +1,7 @@
 import { Store, select } from '@ngrx/store';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+
 import { Observable, Subscription } from 'rxjs';
 
 import { getFeedAction } from 'src/app/shared/modules/feed/store/actions/getFeed.action';
@@ -24,7 +25,7 @@ export class FeedComponent implements OnInit, OnDestroy {
   error$: Observable<string | null>;
   isLoading$: Observable<boolean>;
 
-  limit: number = 10;
+  limit: number = 4;
   baseUrl: string;
 
   queryParamsSubscription: Subscription;
@@ -39,7 +40,6 @@ export class FeedComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initializeValues();
     this.initializeListeners();
-    this.fetchData();
   }
 
   ngOnDestroy(): void {
@@ -56,12 +56,15 @@ export class FeedComponent implements OnInit, OnDestroy {
   initializeListeners(): void {
     this.queryParamsSubscription = this.route.queryParams.subscribe(
       (params: Params) => {
-        console.log(params);
+        this.currentPage = Number(params.page) || 1;
+        this.fetchFeed();
       }
     );
   }
 
-  fetchData(): void {
+  fetchFeed(): void {
     this.store.dispatch(getFeedAction({ url: this.apiUrlProps }));
+
+    
   }
 }
