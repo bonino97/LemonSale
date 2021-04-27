@@ -20,7 +20,7 @@
           </div>
           <hr />
           <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
               <a [routerLink]="['/profiles', article?.author?.username]">{{
                 article?.author?.username
               }}</a>
@@ -33,7 +33,7 @@
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col-12 text-left">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
               <a [routerLink]="['/articles', article?.slug]">
                 <h3 *ngIf="article?.title?.length > 15">
                   {{ article?.title.substring(0, 15) }} ...
@@ -48,7 +48,7 @@
 
           <div class="card-description">
             <div class="row">
-              <div class="col-12 text-left">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
                 <a [routerLink]="['/articles', article?.slug]">
                   <p>{{ article?.description }}</p>
                 </a>
@@ -57,7 +57,7 @@
           </div>
 
           <div class="row">
-            <div class="col-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <span> Read more... </span>
             </div>
           </div>
@@ -67,7 +67,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <app-pagination
         [total]="(feed$ | async)?.articlesCount"
         [limit]="limit"

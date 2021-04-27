@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UtilsService } from 'src/app/shared/services/utils.service';
+import { stringify, parseUrl } from 'query-string';
 
 @Component({
   selector: 'app-pagination',
@@ -13,16 +13,18 @@ export class PaginationComponent implements OnInit {
   @Input('currentPage') currentPageProps: number;
   @Input('url') urlProps: string;
 
-  pagesCount: number;
-  pages: number[];
+  maxSize: number = 4;
+  boundaryLinks: boolean = false;
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    console.log(this.totalProps);
-  }
+  ngOnInit(): void {}
 
   pageChanged(event): void {
-    this.router.navigateByUrl(`?page=${event.page}`);
+    const stringifiedParams = stringify({
+      page: event.page,
+    });
+    const pageUrl = `?${stringifiedParams}`;
+    this.router.navigateByUrl(pageUrl);
   }
 }

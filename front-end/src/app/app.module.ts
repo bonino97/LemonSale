@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 
+import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AuthModule } from 'src/app/auth/auth.module';
 import { NavbarModule } from 'src/app/shared/modules/navbar/navbar.module';
 import { GlobalFeedModule } from 'src/app/global-feed/global-feed.module';
@@ -24,11 +27,14 @@ import { environment } from 'src/environments/environment';
     HttpClientModule,
     AppRoutingModule,
     AuthModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({
+      router: routerReducer,
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([]),
     NavbarModule,
     GlobalFeedModule,

@@ -1,10 +1,10 @@
-<nav>
+<nav class="table-responsive">
   <pagination
     class="pagination-info"
     [totalItems]="totalProps"
     [(ngModel)]="currentPageProps"
-    [maxSize]="4"
-    [boundaryLinks]="true"
+    [maxSize]="maxSize"
+    [boundaryLinks]="boundaryLinks"
     (pageChanged)="pageChanged($event)"
   ></pagination>
 </nav>
