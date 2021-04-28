@@ -18,7 +18,6 @@ import {
   styleUrls: ['./popular-tags.component.scss'],
 })
 export class PopularTagsComponent implements OnInit {
-  
   popularTags$: Observable<PopularTagType[] | null>;
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
@@ -26,6 +25,7 @@ export class PopularTagsComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
+    this.initializeValues();
     this.fetchData();
   }
 

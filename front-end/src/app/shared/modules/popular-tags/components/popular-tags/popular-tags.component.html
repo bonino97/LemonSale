@@ -1,12 +1,19 @@
-<div class="card">
+<div class="card border-right border-info">
   <div class="card-header text-center">Popular Tags</div>
 
-  <div class="card-body">
-    <app-error-message
-      *ngIf="error$ | async"
-      [message]="error$ | async"
-    ></app-error-message>
-    <app-loading *ngIf="isLoading$ | async"></app-loading>
+  <div class="row" *ngIf="isLoading$ | async">
+    <div class="col-12 text-center">
+      <app-loading></app-loading>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="error$ | async">
+    <div class="col-12 text-center">
+      <app-error-message [message]="error$ | async"></app-error-message>
+    </div>
+  </div>
+
+  <div class="card-body" *ngIf="popularTags$ | async">
     <a *ngFor="let tag of popularTags$ | async" [routerLink]="['/tags', tag]">
       <span class="badge badge-info mr-1">
         {{ tag }}
