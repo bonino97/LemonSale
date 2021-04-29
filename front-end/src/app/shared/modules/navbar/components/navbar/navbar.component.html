@@ -52,7 +52,11 @@
               class="nav-link"
               [routerLink]="['/profiles', (currentUser$ | async)?.username]"
             >
-              <img alt="Profile Photo" [src]="(currentUser$ | async)?.image" />
+              <img
+                alt="Profile Photo"
+                [src]="(currentUser$ | async)?.image"
+                *ngIf="(currentUser$ | async)?.image"
+              />
               {{ (currentUser$ | async)?.username }}
             </a>
           </li>

@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <div class="card-body" *ngIf="popularTags$ | async">
+  <div class="card-body">
     <a *ngFor="let tag of popularTags$ | async" [routerLink]="['/tags', tag]">
       <span class="badge badge-info mr-1">
         {{ tag }}

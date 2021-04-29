@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { GetFeedResponseInterface } from '../types/getFeedResponse.interface';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../../environments/environment.prod';
+import { Observable } from 'rxjs';
+
+import { GetFeedResponseInterface } from 'src/app/shared/modules/feed/types/getFeedResponse.interface';
+
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',

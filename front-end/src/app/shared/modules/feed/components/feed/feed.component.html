@@ -9,12 +9,12 @@
       class="col-lg-6 col-md-12 col-sm-12 col-xs-12"
       *ngFor="let article of (feed$ | async)?.articles"
     >
-      <div class="card shadow">
+      <div class="card border-top border-info shadow">
         <div class="card-header">
           <div class="row">
             <div class="col-12 text-center">
               <a [routerLink]="['/profiles', article?.author?.username]">
-                <img alt="Article Photo" [src]="article?.author?.image" />
+                <img alt="User Article Photo" [src]="article?.author?.image" />
               </a>
             </div>
           </div>

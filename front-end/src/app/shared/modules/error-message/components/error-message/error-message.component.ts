@@ -10,6 +10,6 @@ export class ErrorMessageComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.messageProps)
+
   }
 }
