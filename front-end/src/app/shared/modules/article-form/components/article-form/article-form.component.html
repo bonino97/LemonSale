@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-md-10 offset-md-1 col-cs-12">
+    <app-backend-error-messages
+      *ngIf="errorsProps"
+      [backendErrors]="errorsProps"
+    ></app-backend-error-messages>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 offset-md-1 col-cs-12">
+    <form
+      class="form-horizontal ng-untouched ng-pristine ng-valid"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="card border-top border-success">
+        <div class="card-header text-center">
+          <h4 class="card-title">Create Article</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <label class="col-md-3 col-form-label"> Title </label>
+            <div class="col-md-9">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  formControlName="title"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-md-3 col-form-label"> Description </label>
+            <div class="col-md-9">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  formControlName="description"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-md-3 col-form-label"> Body </label>
+            <div class="col-md-9">
+              <div class="form-group">
+                <textarea
+                  type="text"
+                  class="form-control"
+                  formControlName="body"
+                  placeholder="What is this article about?"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-md-3 col-form-label"> Tags </label>
+            <div class="col-md-9">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  formControlName="tagList"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <label class="col-md-3 col-form-label"></label>
+            <div class="col-md-9">
+              <button
+                class="btn btn-fill btn-success btn-block"
+                type="submit"
+                [disabled]="form.invalid || isSubmittingProps"
+              >
+                Publish article
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

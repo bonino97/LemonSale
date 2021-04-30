@@ -17,7 +17,7 @@ import {
   getCurrentUserAction,
   getCurrentUserSuccessAction,
   getCurrentUserFailureAction,
-} from './actions/getCurrentUser.action';
+} from 'src/app/auth/store/actions/getCurrentUser.action';
 
 const initialState: AuthStateInterface = {
   isSubmitting: false,

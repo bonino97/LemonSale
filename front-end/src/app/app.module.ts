@@ -21,6 +21,7 @@ import { AppComponent } from 'src/app/app.component';
 
 import { PersistenceService } from 'src/app/shared/services/persistence.service';
 import { AuthInterceptorService } from 'src/app/shared/services/auth-interceptor.service';
+import { CreateArticleModule } from 'src/app/create-article/create-article.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -41,6 +42,7 @@ import { AuthInterceptorService } from 'src/app/shared/services/auth-interceptor
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
+    CreateArticleModule,
     ArticleModule,
   ],
   providers: [
