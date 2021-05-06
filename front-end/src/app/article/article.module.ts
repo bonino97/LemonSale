@@ -14,6 +14,7 @@ import { ArticleComponent } from 'src/app/article/components/article/article.com
 import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-message.module';
 import { LoadingModule } from 'src/app/shared/modules/loading/loading.module';
 import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
+import { EditArticleModule } from 'src/app/edit-article/edit-article.module';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
     ErrorMessageModule,
     LoadingModule,
     TagListModule,
+    EditArticleModule,
   ],
   providers: [ArticleService, SharedArticleService],
 })

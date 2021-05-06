@@ -24,7 +24,7 @@
             <div class="row" *ngIf="isAuthor$ | async">
               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ml-auto">
                 <a
-                  [routerLink]="['/articles', article.slug, '/edit']"
+                  [routerLink]="['/articles', article.slug, 'edit']"
                   class="btn btn-info btn-sm btn-simple btn-block"
                 >
                   Edit Article
