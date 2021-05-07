@@ -57,7 +57,7 @@ export class EditArticleComponent implements OnInit {
     this.backendErrors$ = this.store.pipe(select(validationErrorsSelector));
     this.initialValues$ = this.store.pipe(
       select(articleSelector),
-      filter(Boolean),
+      filter(Boolean), 
       map((article: ArticleInterface) => {
         return {
           title: article.title,

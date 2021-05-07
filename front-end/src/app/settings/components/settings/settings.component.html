@@ -1,0 +1,66 @@
+<div class="row" *ngIf="currentUser">
+  <div class="col-12">
+    <div class="card shadow">
+      <div class="card-header text-center">
+        <h3 class="text-info">Profile</h3>
+      </div>
+      <div class="card-body text-center">
+        <app-backend-error-messages
+          *ngIf="backendErrors$ | async"
+          [backendErrors]="backendErrors$ | async"
+        ></app-backend-error-messages>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <fieldset class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="image"
+                placeholder="URL of Profile Picture"
+              />
+            </fieldset>
+            <fieldset class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="username"
+                placeholder="Username"
+              />
+            </fieldset>
+            <fieldset class="form-group">
+              <textarea
+                type="text"
+                class="form-control"
+                formControlName="bio"
+                placeholder="Biography"
+              ></textarea>
+            </fieldset>
+            <fieldset class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="email"
+                placeholder="Email"
+              />
+            </fieldset>
+            <fieldset class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Password"
+              />
+            </fieldset>
+            <button
+              type="submit"
+              class="btn btn-info"
+              [disabled]="form.invalid || (isSubmitting$ | async)"
+            >
+              Update Settings
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

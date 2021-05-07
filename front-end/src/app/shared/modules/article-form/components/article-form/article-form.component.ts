@@ -32,13 +32,6 @@ export class ArticleFormComponent implements OnInit {
       body: this.initialValuesProps.body,
       tagList: this.initialValuesProps.tagList.join(' '),
     });
-
-    // this.form = this.fb.group({
-    //   title: '',
-    //   description: '',
-    //   body: '',
-    //   tagList: '',
-    // });
   }
 
   onSubmit(): void {

@@ -7,33 +7,43 @@ import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.int
 import { LoginRequestInterface } from 'src/app/auth/types/loginRequest.interface';
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 import { environment } from 'src/environments/environment';
+import { CurrentUserInputInterface } from 'src/app/shared/types/currentUserInput.interface';
 
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  GetUser(response: AuthResponseInterface): CurrentUserInterface {
+  getUser(response: AuthResponseInterface): CurrentUserInterface {
     return response.user;
   }
 
-  Register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
+  register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
     const url = environment.apiUrl + '/users';
 
     return this.http
       .post<AuthResponseInterface>(url, data)
-      .pipe(map(this.GetUser));
+      .pipe(map(this.getUser));
   }
 
-  Login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
+  login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
     const url = environment.apiUrl + '/users/login';
 
     return this.http
       .post<AuthResponseInterface>(url, data)
-      .pipe(map(this.GetUser));
+      .pipe(map(this.getUser));
   }
 
-  GetCurrentUser(): Observable<CurrentUserInterface> {
+  getCurrentUser(): Observable<CurrentUserInterface> {
     const url = environment.apiUrl + '/user';
-    return this.http.get(url).pipe(map(this.GetUser));
+    return this.http.get(url).pipe(map(this.getUser));
+  }
+
+  updateCurrentUser(
+    data: CurrentUserInputInterface
+  ): Observable<CurrentUserInterface> {
+    const url = environment.apiUrl + '/user';
+    return this.http
+      .put<AuthResponseInterface>(url, data)
+      .pipe(map(this.getUser));
   }
 }

@@ -7,6 +7,7 @@ import {
   isLoggedInSelector,
 } from 'src/app/auth/store/selectors';
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
+import { logoutAction } from 'src/app/auth/store/actions/sync.action';
 
 @Component({
   selector: 'app-navbar',
@@ -22,9 +23,13 @@ export class NavbarComponent implements OnInit {
 
   constructor(private store: Store) {}
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector));
     this.isAnonymus$ = this.store.pipe(select(isAnonymusSelector));
     this.currentUser$ = this.store.pipe(select(currentUserSelector));
+  }
+
+  logout(): void {
+    this.store.dispatch(logoutAction());
   }
 }

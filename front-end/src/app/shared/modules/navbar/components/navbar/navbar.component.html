@@ -54,10 +54,16 @@
             >
               <img
                 alt="Profile Photo"
+                class="photo"
                 [src]="(currentUser$ | async)?.image"
                 *ngIf="(currentUser$ | async)?.image"
               />
               {{ (currentUser$ | async)?.username }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mt-1" href="javascript:void(0)" (click)="logout()">
+              <i class="tim-icons icon-button-power text-danger"></i>
             </a>
           </li>
         </ng-container>

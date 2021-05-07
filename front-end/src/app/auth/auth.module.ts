@@ -17,6 +17,8 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 
 import { LoginComponent } from 'src/app/auth/components/login/login.component';
 import { RegisterComponent } from 'src/app/auth/components/register/register.component';
+import { UpdateCurrentUserEffect } from 'src/app/auth/store/effects/updateCurrentUser.effect';
+import { LogoutEffect } from 'src/app/auth/store/effects/logout.effect';
 
 const routes: Routes = [
   {
@@ -40,6 +42,8 @@ const routes: Routes = [
       RegisterEffect,
       LoginEffect,
       GetCurrentUserEffect,
+      UpdateCurrentUserEffect,
+      LogoutEffect,
     ]),
     BackendErrorMessagesModule,
   ],

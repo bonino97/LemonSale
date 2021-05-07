@@ -1,22 +1,18 @@
-<div class="content">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-        <app-banner></app-banner>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-        <app-popular-tags></app-popular-tags>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <app-feed-toggler [tagName]="tagName"></app-feed-toggler>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <app-feed [apiUrl]="apiUrl"></app-feed>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+    <app-banner></app-banner>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <app-popular-tags></app-popular-tags>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <app-feed-toggler [tagName]="tagName"></app-feed-toggler>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <app-feed [apiUrl]="apiUrl"></app-feed>
   </div>
 </div>
