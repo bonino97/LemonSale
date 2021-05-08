@@ -1,0 +1,11 @@
+<button
+  [ngClass]="{
+    btn: true,
+    'btn-icon': true,
+    'btn-simple': !isFavorited,
+    'btn-twitter': true
+  }"
+  (click)="handleLike()"
+>
+  <i class="tim-icons icon-heart-2"> </i>
+</button>
