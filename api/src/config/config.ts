@@ -14,7 +14,7 @@ const MONGO_OPTIONS = {
 
 const MONGO_USERNAME = process.env.MONGO_USERNAME || '';
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD || '';
-const MONGO_DBNAME = 'portal-jobs';
+const MONGO_DBNAME = 'lemon-sale';
 const MONGO_HOST = process.env.MONGO_HOST || `mongodb://localhost:27017/${MONGO_DBNAME}`;
 // const MONGO_URL = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}`;
 const MONGO_URL = MONGO_HOST;
