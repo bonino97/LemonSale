@@ -42,7 +42,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
       .pipe(select(currentUserSelector), filter(Boolean))
       .subscribe((currentUser: CurrentUserInterface) => {
         this.currentUser = currentUser;
-        console.log(this.currentUser);
         this.initializeForm();
       });
   }

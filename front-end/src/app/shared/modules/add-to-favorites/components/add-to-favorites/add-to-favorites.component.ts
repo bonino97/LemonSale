@@ -17,7 +17,6 @@ export class AddToFavoritesComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    console.log(this.isFavoritedProps);
     this.favoritesCount = this.favoritesCountProps;
     this.isFavorited = this.isFavoritedProps;
   }

@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card card-user">
+      <div class="card-body">
+        <p class="card-text"></p>
+        <div class="author">
+          <div class="block block-one"></div>
+          <div class="block block-two"></div>
+          <div class="block block-three"></div>
+          <div class="block block-four"></div>
+          <a href="javascript:void(0)">
+            <img
+              alt="Profile Photo"
+              class="avatar shadow"
+              [src]="userProfile?.image"
+              *ngIf="userProfile?.image"
+            />
+            <h5 class="title">{{ userProfile?.username }}</h5></a
+          >
+          <p class="description">
+            <a
+              class="btn btn-sm btn-info btn-simple"
+              *ngIf="isCurrentUserProfile$ | async"
+              [routerLink]="['/settings']"
+              >Edit Profile</a
+            >
+          </p>
+        </div>
+        <div class="card-description text-center">
+          {{ userProfile?.bio }}
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="button-container"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <div class="card border-left border-info">
+      <div class="card-body">
+        <ul class="nav">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="['/profiles', userProfile?.username]"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >My Posts</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="['/profiles', userProfile?.username, 'favorites']"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Favorites Posts</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <app-feed [apiUrl]="getApiUrl()"></app-feed>
+  </div>
+</div>
