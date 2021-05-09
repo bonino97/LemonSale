@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "medium-clone": {
+    "lemon-sale": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/medium-clone",
+            "outputPath": "dist/lemon-sale",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "medium-clone:build"
+            "browserTarget": "lemon-sale:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "medium-clone:build:production"
+              "browserTarget": "lemon-sale:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "medium-clone:build"
+            "browserTarget": "lemon-sale:build"
           }
         },
         "test": {
@@ -119,16 +119,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "medium-clone:serve"
+            "devServerTarget": "lemon-sale:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "medium-clone:serve:production"
+              "devServerTarget": "lemon-sale:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "medium-clone"
+  "defaultProject": "lemon-sale"
 }
