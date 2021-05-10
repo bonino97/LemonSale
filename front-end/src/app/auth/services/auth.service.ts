@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
-    const url = environment.apiUrl + '/users';
+    const url = environment.apiUrl + '/auth/register';
 
     return this.http
       .post<AuthResponseInterface>(url, data)
@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
-    const url = environment.apiUrl + '/users/login';
+    const url = environment.apiUrl + '/auth/login';
 
     return this.http
       .post<AuthResponseInterface>(url, data)

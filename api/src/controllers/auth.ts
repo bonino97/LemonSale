@@ -18,11 +18,12 @@ const validateToken = (req: Request, res: Response, next: NextFunction) => {
 
 const register = (req: Request, res: Response) => {
     logging.info(NAMESPACE, `Register Method`);
-    let { email, password } = req.body;
+    let { username, email, password } = req.body.user;
     bcrypt.hash(password, 10, (error: Error, hash: any) => {
         if (error) sendResponse(res, 'HASH_ERROR', 500, { data: error });
 
         const user = new User({
+            username,
             email,
             password: hash
         });
@@ -40,15 +41,15 @@ const login = (req: Request, res: Response) => {
     User.findOne({ email })
         .exec()
         .then((user: any) => {
-            if (!user) sendResponse(res, 'UNEXISTENT_USER', 401);
+            if (!user) return sendResponse(res, 'UNEXISTENT_USER', 401);
             bcrypt.compare(password, user.password, (error: Error, result: any) => {
-                if (error) sendResponse(res, 'LOGIN_ERROR', 401, { data: error });
+                if (error) return sendResponse(res, 'LOGIN_ERROR', 401, { data: error });
                 if (result) {
                     signJWT(user, (error, token) => {
-                        if (error) sendResponse(res, 'SIGN_TOKEN_ERROR ', 401, { data: error });
-                        if (token) sendResponse(res, 'LOGIN_SUCCESS', 200, { data: token, user });
+                        if (error) return sendResponse(res, 'SIGN_TOKEN_ERROR ', 401, { data: error });
+                        if (token) return sendResponse(res, 'LOGIN_SUCCESS', 200, { data: token });
                     });
-                } else sendResponse(res, 'INCORRECT_PASSWORD', 401, { data: error });
+                } else return sendResponse(res, 'INCORRECT_PASSWORD', 401, { data: error });
             });
         })
         .catch((error: Error) => sendResponse(res, 'SIGN_TOKEN_ERROR', 500, { data: error }));

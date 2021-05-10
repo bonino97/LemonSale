@@ -16,6 +16,7 @@ const extractJWT = (req: Request, res: Response, next: NextFunction) => {
                 return sendResponse(error, 'VERIFY_JWT_ERROR', 401, { data: error.message });
             } else {
                 res.locals.jwt = decode;
+                console.log(res.locals.jwt);
                 next();
             }
         });
